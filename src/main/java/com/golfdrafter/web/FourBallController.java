@@ -13,7 +13,11 @@ import java.util.List;
 @RequestMapping("/api/four-ball")
 public class FourBallController {
 
-    private final FourBallMatchPlay fourBall = new FourBallMatchPlay();
+    private final FourBallMatchPlay fourBall;
+
+    public FourBallController(FourBallMatchPlay fourBall) {
+        this.fourBall = fourBall;
+    }
 
     @PostMapping("/strokes")
     public StrokesResponse strokes (@RequestBody StrokesRequest request) {
