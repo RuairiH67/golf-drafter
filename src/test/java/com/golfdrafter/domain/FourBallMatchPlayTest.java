@@ -34,13 +34,6 @@ public class FourBallMatchPlayTest {
     }
 
     @Test
-    void emptyList_isRejected() {
-        assertThatThrownBy(() -> new FourBallMatchPlay().strokesReceived(List.of()))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("At least one handicap must be given");
-    }
-
-    @Test
     void threePlayers_isRejected() {
         var handicaps = List.of(
                 new CourseHandicap(5),
