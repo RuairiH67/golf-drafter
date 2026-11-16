@@ -8,7 +8,7 @@ public class CourseHandicapTest {
 
     @Test
     void storesItsValue() {
-        var courseHandicap = new CourseHandicap(19);
+        var courseHandicap = new CourseHandicap(18);
 
         assertThat(courseHandicap.handicap()).isEqualTo(18);
     }
