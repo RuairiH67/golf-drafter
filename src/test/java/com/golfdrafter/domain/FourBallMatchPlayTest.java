@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class FourBallMatchPlayTest {
     @Test
@@ -30,5 +31,12 @@ public class FourBallMatchPlayTest {
         var strokes = new FourBallMatchPlay().strokesReceived(handicaps);
 
         assertThat(strokes).containsExactly(0, 5, 9, 14);
+    }
+
+    @Test
+    void emptyList_isRejected() {
+        assertThatThrownBy(() -> new FourBallMatchPlay().strokesReceived(List.of()))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("At least one handicap must be given");
     }
 }

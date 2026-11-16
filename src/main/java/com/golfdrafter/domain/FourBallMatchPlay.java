@@ -10,6 +10,10 @@ public class FourBallMatchPlay {
 
     public List<Integer> strokesReceived(List<CourseHandicap> handicaps) {
 
+        if(handicaps.isEmpty()) {
+            throw new IllegalArgumentException("At least one handicap must be given");
+        }
+
         int lowestHandicap = handicaps.stream()
                 .mapToInt(CourseHandicap::handicap)
                 .min()
